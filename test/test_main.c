@@ -7,6 +7,16 @@ int main(int ac, char **av)
     // t->arr_b[0] = 3;
     // t->arr_b[1] = 2;
     // ft_print_stack_a(t);
+    ft_print_stack_a(t);
+    printf("-------");
+    sa(t);
+    ft_print_stack_a(t);
+    printf("-------");
+    sa(t);
+    ft_print_stack_a(t);
+
+    
+    //push a, push b;
     pb(t);
     pb(t);
     printf("pb, stack a:\n");
