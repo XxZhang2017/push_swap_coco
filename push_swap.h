@@ -30,6 +30,7 @@ typedef struct s_stack
     int size;
     char    print[4];
     int  _flag;
+    int op;
     //debug:
     int print_flag_a;
     int print_flag_b;
@@ -61,5 +62,5 @@ void        ft_print_arglist(char **av, int i);
 
 
 char     **eval(int ac, char **av, int *size, int *flag);
-
+t_stack *validate(int ac, char **av);
 #endif
