@@ -31,3 +31,8 @@ t_stack *initstack(char **arglist, int size)
     return reg;
 
 }
+
+void    set_stack_info(t_stack *st, int flag[2])
+{
+    st->_flag = flag[0] + (flag[1] << 1);
+}

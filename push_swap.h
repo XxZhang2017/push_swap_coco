@@ -50,8 +50,16 @@ void    rrr(t_stack *st);
 void    rra(t_stack *st);
 void    rrb(t_stack *st);
 
-
+//stack state:
 t_stack    *initstack(char  **arglist, int size);
+void    set_stack_info(t_stack *st, int flag[2]);
+
+//debug:
 void        ft_print_stack_a(t_stack *t);
 void		ft_print_stack_b(t_stack *st);
+void        ft_print_arglist(char **av, int i);
+
+
+char     **eval(int ac, char **av, int *size, int *flag);
+
 #endif
