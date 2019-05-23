@@ -15,6 +15,8 @@ void    sa(t_stack *st)
 
 void    sb(t_stack *st)
 {
+    if (st->num_b < 2)
+        return;
     ft_strcpy(st->print, "sb");
     st->buf_b = st->arr_b[st->top_b];
     st->arr_b[st->top_b] = st->arr_b[st->top_b + 1];
@@ -27,7 +29,8 @@ void    sb(t_stack *st)
 void    ss(t_stack *st)
 {
     int buf;
-
+    if (st->num_b < 2 || st->num_a < 2)
+        return;
     buf = st->_flag;
     st->_flag = 0;
     ft_strcpy(st->print, "ss");

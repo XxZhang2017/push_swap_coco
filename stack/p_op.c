@@ -3,9 +3,9 @@
 void    pa(t_stack *st)
 {
     //error, b is empty;
-    ft_strcpy(st->print, "pa");
     if (st->num_b == 0)
         return ;
+    ft_strcpy(st->print, "pa");
     st->buf_a = st->arr_b[st->top_b];
     if (st->num_a == 0)
     {
@@ -33,10 +33,9 @@ void    pa(t_stack *st)
 void    pb(t_stack *st)
 {
     //error, b is empty;
-    ft_strcpy(st->print, "pb");
     if (st->num_a == 0)
         return ;
-    
+    ft_strcpy(st->print, "pb");
     st->buf_b = st->arr_a[st->top_a];
     if (st->num_b == 0)
     {
