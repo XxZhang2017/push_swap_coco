@@ -15,20 +15,25 @@ int main(int ac, char **av)
     printf("\n\n");
     ft_print_stack_b(t);
     printf("---------\n");
-    printf("%d, b_top\n", t->top_b);
-    printf("%d, a_top\n", t->top_a);
-    printf("%d num of a, %d, num of b\n", t->num_a, t->num_b);
-    ra(t);
+    rra(t);
     ft_print_stack_a(t);
     printf("\n\n");
     ft_print_stack_b(t);
     printf("---------\n");
-    printf("%d, b_top\n", t->top_b);
-    printf("%d, a_top\n", t->top_a);
-    rr(t);
+    rra(t);
     ft_print_stack_a(t);
     printf("\n\n");
     ft_print_stack_b(t);
+    printf("---------\n");
+    rra(t);
+    ft_print_stack_a(t);
+    printf("\n\n");
+    ft_print_stack_b(t);
+    printf("---------\n");
+    // rr(t);
+    // ft_print_stack_a(t);
+    // printf("\n\n");
+    // ft_print_stack_b(t);
 
 
 
