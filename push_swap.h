@@ -28,9 +28,8 @@ typedef struct s_stack
     //comm:
     int size;
     char    print[4];
-
+    int  _flag;
     //debug:
-    int flag;
     int print_flag_a;
     int print_flag_b;
     int step;
@@ -44,6 +43,7 @@ void    ra(t_stack *st);
 void    rb(t_stack *st);
 void    sa(t_stack *st);
 void    sb(t_stack *st);
+void    ss(t_stack *st);
 void    rr(t_stack *st);
 void    rrr(t_stack *st);
 void    ra(t_stack *st);

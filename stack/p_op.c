@@ -21,7 +21,9 @@ void    pa(t_stack *st)
     }
     (st->num_b)--;
     (st->num_a)++;
-    printf("pa\n");
+
+    if (st->_flag)
+        printf("pa\n");
 }
 
 void    pb(t_stack *st)
@@ -46,6 +48,8 @@ void    pb(t_stack *st)
     }
     (st->num_a)--;
     (st->num_b)++;
-    printf("pb\n");
+
+    if (st->_flag)
+        printf("pb\n");
 }
 

@@ -26,6 +26,8 @@ t_stack *initstack(char **arglist, int size)
     assign(arglist, reg);
 
     reg->top_b = -1;
+
+    reg->_flag = 1;
     return reg;
 
 }
