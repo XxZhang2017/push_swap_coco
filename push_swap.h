@@ -2,8 +2,9 @@
 # define _PUSH_SWAP_H
 
 # include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
+// # include <stdlib.h>
+// # include <string.h>
+# include "ps_libft/libft.h"
 // typedef struct stack
 // {
 //     int top_a;
@@ -46,8 +47,8 @@ void    sb(t_stack *st);
 void    ss(t_stack *st);
 void    rr(t_stack *st);
 void    rrr(t_stack *st);
-void    ra(t_stack *st);
-void    rb(t_stack *st);
+void    rra(t_stack *st);
+void    rrb(t_stack *st);
 
 
 t_stack    *initstack(char  **arglist, int size);

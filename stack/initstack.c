@@ -7,7 +7,7 @@ static void assign(char **arglist, t_stack *st)
 
     while (i >= 0)
     {
-        st->arr_a[i] = atoi(arglist[i]);
+        st->arr_a[i] = ft_atoi(arglist[i]);
         i--;
     }
     st->top_a = 0;

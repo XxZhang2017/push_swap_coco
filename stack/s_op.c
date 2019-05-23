@@ -4,7 +4,7 @@ void    sa(t_stack *st)
 {
     if (st->num_a < 2)
         return;
-    strcpy(st->print, "sa");
+    ft_strcpy(st->print, "sa");
     st->buf_a = st->arr_a[st->top_a];
     st->arr_a[st->top_a] = st->arr_a[st->top_a + 1];
     st->arr_a[st->top_a + 1] = st->buf_a;
@@ -15,7 +15,7 @@ void    sa(t_stack *st)
 
 void    sb(t_stack *st)
 {
-    strcpy(st->print, "sb");
+    ft_strcpy(st->print, "sb");
     st->buf_b = st->arr_b[st->top_b];
     st->arr_b[st->top_b] = st->arr_b[st->top_b + 1];
     st->arr_b[st->top_b + 1] = st->buf_b;
@@ -30,7 +30,7 @@ void    ss(t_stack *st)
 
     buf = st->_flag;
     st->_flag = 0;
-    strcpy(st->print, "ss");
+    ft_strcpy(st->print, "ss");
     sa(st);
     sb(st);
     st->_flag = buf;
