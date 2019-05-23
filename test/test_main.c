@@ -3,29 +3,55 @@
 int main(int ac, char **av)
 {
     t_stack *t;
-    t = initstack(&av[1], 4);
+    t = initstack(&av[1], 6);
     // t->arr_b[0] = 3;
     // t->arr_b[1] = 2;
-    // ft_print_stack_a(t);
+    // ft_print_stack_a(t)\\
+
+    //rr:
+    pb(t);
+    pb(t);
+    ft_print_stack_a(t);
+    printf("\n\n");
+    ft_print_stack_b(t);
+    printf("---------\n");
+    printf("%d, b_top\n", t->top_b);
+    printf("%d, a_top\n", t->top_a);
+    printf("%d num of a, %d, num of b\n", t->num_a, t->num_b);
+    ra(t);
+    ft_print_stack_a(t);
+    printf("\n\n");
+    ft_print_stack_b(t);
+    printf("---------\n");
+    printf("%d, b_top\n", t->top_b);
+    printf("%d, a_top\n", t->top_a);
+    rr(t);
+    ft_print_stack_a(t);
+    printf("\n\n");
+    ft_print_stack_b(t);
+
+
+
 
 
     //sa, sb, ss:
-    printf("-------\n");
-    ft_print_stack_a(t);
-    printf("\n\n");
-    ft_print_stack_b(t);
-    pb(t);
-    pb(t);
+    // printf("-------\n");
+    // ft_print_stack_a(t);
+    // printf("\n\n");
+    // ft_print_stack_b(t);
+    // pb(t);
+    // pb(t);
 
-    printf("-------\n");
-    ft_print_stack_a(t);
-    printf("\n\n");
-    ft_print_stack_b(t);
-    ss(t);
-    printf("-------\n");
-    ft_print_stack_a(t);
-    printf("\n\n");
-    ft_print_stack_b(t);
+    // printf("-------\n");
+    // ft_print_stack_a(t);
+    // printf("\n\n");
+    // ft_print_stack_b(t);
+    // ss(t);
+    // printf("-------\n");
+    // ft_print_stack_a(t);
+    // printf("\n\n");
+    // ft_print_stack_b(t);
+
     // ft_print_stack_a(t);
     // printf("-------");
     // sa(t);
