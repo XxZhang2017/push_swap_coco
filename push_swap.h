@@ -5,6 +5,7 @@
 // # include <stdlib.h>
 // # include <string.h>
 # include <time.h>
+# include <string.h>
 # include "ps_libft/libft.h"
 
 typedef struct s_stack
@@ -85,6 +86,10 @@ t_action    *appendAction(t_action *act, int acode);
 t_action    *moreAction(t_action *act, int acode, int num);
 t_action    *getInstruction(int acode, int num);
 void        exeAction(t_action *act, t_stack *st);
+
+//sort:
+int    sort_three(t_stack *st);
+
 
 
 //free:

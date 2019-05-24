@@ -49,26 +49,21 @@ int    sort_three(t_stack *st)
     int     reg;
 
     act = action_three(st);
-    // store_stack_info(st);
+    if (act)
+        exeAction(act, st);
+    store_stack_info(st);
+    // printf("after exe: \n");
     // ft_print_stack_info(st);
     // printf("\n");
-    if (act == NULL && st->mini_a == st->top_a && st->top_b == -1)
-        return (0);
-    else if (act == NULL && st->mini_a == st->size - 1 && st->top_b == -1)
-        return (2);
-    else if (act == NULL && st->mini_a == st->size - 1 && st->top_b != -1)
-        return (3);
-    exeAction(act, st);
-    store_stack_info(st);
-    printf("after exe: \n");
-    ft_print_stack_info(st);
-    printf("\n");
     if (st->mini_a == st->top_a && st->top_b == -1)
-        return (0);
+        reg = 0;
     else if (st->mini_a == st->top_a && st->top_b != -1)
-        return (1);
-    // else if (st->mini_a == st->size - 1 && st->top_b != -1)
-    //     return (3);
+        reg = 1;
+    else if (st->mini_a == st->size - 1 && st->top_b == -1)
+        reg = 2;
+    else if (st->mini_a == st->size - 1 && st->top_b != -1)
+        reg = 3;
     else
-        return (-1);
+        reg = -1;
+    return (reg);
 }

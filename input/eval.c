@@ -129,8 +129,6 @@ char     **eval(int ac, char **av, int *size, int *flag)
     num = ac - 1;
     num_op = pos_cal(num, &av[1], flag);
 
-    // printf("the number of the option %d\n", num_op);
-
     num -=num_op;
     if (isdupnum(&av[num_op + 1], num))
     {
@@ -142,4 +140,34 @@ char     **eval(int ac, char **av, int *size, int *flag)
     if (!reg)
         return (NULL);
     return (reg);
+}
+
+
+t_stack *validate(int ac, char **av)
+{
+    char    **arglist;
+    int     size;
+    int     flag[2];
+    t_stack *st;
+
+    flag[0] = 0;
+    flag[1] = 0;
+    if (ac == 1)
+        return (NULL);
+    if ((arglist = eval(ac, av, &size, &flag[0])) == NULL)
+        return (NULL);
+    else
+    {
+        st = initstack(arglist, size);
+        if (!st)
+            return (NULL);
+        set_stack_info(st, flag);
+        free_arglist(arglist, size);
+        // printf("stack size %d\n", size);
+        // ft_print_stack_a(st);
+        // printf("printf list\n");
+        // ft_print_arglist(arglist, 5);
+        // printf("end\n");
+        return (st);
+    }
 }
