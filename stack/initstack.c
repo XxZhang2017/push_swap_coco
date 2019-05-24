@@ -14,6 +14,19 @@ static void assign(char **arglist, t_stack *st)
     st->num_a = st->size;
 }
 
+// static void free_arr(int *arr, int len)
+// {
+//     int i;
+
+//     i = 0;
+//     while (i < len)
+//     {
+//         free(arr[i]);
+//         i++;
+//     }
+//     free(arr);
+// }
+
 t_stack *initstack(char **arglist, int size)
 {
     t_stack *reg = (t_stack *)malloc(sizeof(t_stack));
@@ -36,4 +49,12 @@ t_stack *initstack(char **arglist, int size)
 void    set_stack_info(t_stack *st, int flag[2])
 {
     st->op = flag[0] + (flag[1] << 1);
+}
+
+
+void    free_stack(t_stack *st)
+{
+    free(st->arr_a);
+    free(st->arr_b);
+    free(st);
 }

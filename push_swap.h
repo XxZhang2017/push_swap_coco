@@ -4,14 +4,9 @@
 # include <stdio.h>
 // # include <stdlib.h>
 // # include <string.h>
+# include <time.h>
 # include "ps_libft/libft.h"
-// typedef struct stack
-// {
-//     int top_a;
-//     int *arr_a;
-//     int num_a;
-//     int buf_a;
-// } 
+
 typedef struct s_stack
 {
     //stack a:
@@ -20,11 +15,21 @@ typedef struct s_stack
     int num_a;
     int buf_a;
 
+    int mini_a;
+    int maxi_a;
+    int minv_a;
+    int maxv_a;
+
     //stack b:
     int top_b;
     int *arr_b;
     int num_b;
     int buf_b;
+
+    int mini_b;
+    int maxi_b;
+    int minv_b;
+    int maxv_b;
 
     //comm:
     int size;
@@ -38,6 +43,13 @@ typedef struct s_stack
 
 }      t_stack;
 
+typedef struct s_action
+{
+    int a_code;
+    int len;
+    struct s_action *head;
+    struct s_action *next;
+}               t_action;
 
 void    pa(t_stack *st);
 void    pb(t_stack *st);
@@ -54,13 +66,29 @@ void    rrb(t_stack *st);
 //stack state:
 t_stack    *initstack(char  **arglist, int size);
 void    set_stack_info(t_stack *st, int flag[2]);
+void    store_stack_info(t_stack *st);
+
 
 //debug:
 void        ft_print_stack_a(t_stack *t);
 void		ft_print_stack_b(t_stack *st);
 void        ft_print_arglist(char **av, int i);
+void        ft_print_stack_info(t_stack *st);
+
+//validation:
+char        **eval(int ac, char **av, int *size, int *flag);
+t_stack     *validate(int ac, char **av);
+
+//action:
+t_action    *newAction(int acode);
+t_action    *appendAction(t_action *act, int acode);
+t_action    *moreAction(t_action *act, int acode, int num);
+t_action    *getInstruction(int acode, int num);
+void        exeAction(t_action *act, t_stack *st);
 
 
-char     **eval(int ac, char **av, int *size, int *flag);
-t_stack *validate(int ac, char **av);
+//free:
+void    free_arglist(char **al, int len);
+void    free_stack(t_stack *st);
+void    free_action(t_action *act);
 #endif
