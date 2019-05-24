@@ -19,9 +19,10 @@ void    ra(t_stack *st)
             index++;
         }
         st->arr_a[st->size - 1] = buf;
+        if (st->_flag)
+            printf("ra\n");
     }
-    if (st->_flag)
-        printf("ra\n");
+    
 }
 
 void    rb(t_stack *st)
@@ -43,9 +44,10 @@ void    rb(t_stack *st)
             count++;
         }
         st->arr_b[st->size - 1] = buf;
+        if (st->_flag)
+            printf("rb\n");
     }
-    if (st->_flag)
-        printf("rb\n");
+    
 }
 
 void    rr(t_stack *st)
@@ -60,7 +62,8 @@ void    rr(t_stack *st)
         ra(st);
         rb(st);
         st->_flag = buf;
+        if (st->_flag)
+            printf("rr\n");
     }
-    if (st->_flag)
-        printf("rr\n");
+    
 }

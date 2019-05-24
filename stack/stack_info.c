@@ -31,7 +31,7 @@ static void store_info_a(t_stack *st)
         if (st->arr_a[i] < st->minv_a)
         {
             st->minv_a = st->arr_a[i];
-            st->mini_a = i;
+            st->mini_a = i;     
         }
         if (st->arr_a[i] > st->maxv_a)
         {
@@ -40,6 +40,7 @@ static void store_info_a(t_stack *st)
         }
         i++;
     }  
+    
 }
 
 static void store_info_b(t_stack *st)

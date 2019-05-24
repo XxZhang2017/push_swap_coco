@@ -148,6 +148,17 @@ void		ft_print_stack_b(t_stack *st)
 		elem--;
 	}
 }
+
+void    ft_print_stack_info(t_stack *st)
+{
+    printf("stack info ------------------ \n");
+    printf("stack a: min:  %d,   min index:  %d\n", st->minv_a, st->mini_a);
+    printf("stack a: max:  %d,   max index:  %d\n", st->maxv_a, st->maxi_a);
+    printf("----------------------------- \n");
+    printf("stack b: min:  %d,   min index:  %d\n", st->minv_b, st->mini_b);
+    printf("stack b: max:  %d,   max index:  %d\n", st->maxv_b, st->maxi_b);
+}
+
 // static void		print_stack_a(int *elem_a, int *top_a, t_stack *stks, int *i)
 // {
 // 	ft_printf(" %d:   ", (*i)++);
