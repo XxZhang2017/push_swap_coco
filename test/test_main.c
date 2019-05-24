@@ -51,19 +51,19 @@ int main(int ac, char **av)
     // ft_print_stack_a(t);
     // printf("\n\n");
     // ft_print_stack_b(t);
-    ss(t);
-    printf("-------\n");
-    ft_print_stack_a(t);
-    printf("\n\n");
-    ft_print_stack_b(t);
+    // ss(t);
+    // printf("-------\n");
+    // ft_print_stack_a(t);
+    // printf("\n\n");
+    // ft_print_stack_b(t);
 
-    ft_print_stack_a(t);
-    printf("-------");
-    sa(t);
-    ft_print_stack_a(t);
-    printf("-------");
-    sa(t);
-    ft_print_stack_a(t);
+    // ft_print_stack_a(t);
+    // printf("-------");
+    // sa(t);
+    // ft_print_stack_a(t);
+    // printf("-------");
+    // sa(t);
+    // ft_print_stack_a(t);
 
 
     //push a, push b;

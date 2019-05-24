@@ -1,60 +1,61 @@
 #include "../push_swap.h"
 
-int main(int ac, char **av)
-{
-    char    **arglist;
-    int     size;
-    int     flag[2];
-    t_stack *st;
-    
-    flag[0] = 0;
-    flag[1] = 0;
-    if (ac == 1)
-        return (0);
-    if ((arglist = eval(ac, av, &size, &flag[0])) == NULL)
-        return (0);
-    else
-    {
-        st = initstack(arglist, size);
-        if (!st)
-            return 0;
-        set_stack_info(st, flag);
-        printf("stack size %d\n", size);
-        ft_print_stack_a(st);
-        // printf("printf list\n");
-        // ft_print_arglist(arglist, 5);
-        // printf("end\n");
-        free_stack(st);
-        free_arglist(arglist, size);
-        sleep(10);
-        return (0);
-    }
-}
-
-// t_stack *validate(int ac, char **av)
+// int main(int ac, char **av)
 // {
 //     char    **arglist;
 //     int     size;
 //     int     flag[2];
 //     t_stack *st;
-
+    
 //     flag[0] = 0;
 //     flag[1] = 0;
 //     if (ac == 1)
-//         return (NULL);
+//         return (0);
 //     if ((arglist = eval(ac, av, &size, &flag[0])) == NULL)
-//         return (NULL);
+//         return (0);
 //     else
 //     {
 //         st = initstack(arglist, size);
 //         if (!st)
-//             return (NULL);
+//             return 0;
 //         set_stack_info(st, flag);
-//         // printf("stack size %d\n", size);
-//         // ft_print_stack_a(st);
+//         printf("stack size %d\n", size);
+//         ft_print_stack_a(st);
 //         // printf("printf list\n");
 //         // ft_print_arglist(arglist, 5);
 //         // printf("end\n");
-//         return (st);
+//         free_stack(st);
+//         free_arglist(arglist, size);
+//         sleep(10);
+//         return (0);
 //     }
 // }
+
+t_stack *validate(int ac, char **av)
+{
+    char    **arglist;
+    int     size;
+    int     flag[2];
+    t_stack *st;
+
+    flag[0] = 0;
+    flag[1] = 0;
+    if (ac == 1)
+        return (NULL);
+    if ((arglist = eval(ac, av, &size, &flag[0])) == NULL)
+        return (NULL);
+    else
+    {
+        st = initstack(arglist, size);
+        if (!st)
+            return (NULL);
+        set_stack_info(st, flag);
+        free_arglist(arglist, size);
+        // printf("stack size %d\n", size);
+        // ft_print_stack_a(st);
+        // printf("printf list\n");
+        // ft_print_arglist(arglist, 5);
+        // printf("end\n");
+        return (st);
+    }
+}
