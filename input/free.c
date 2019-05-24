@@ -23,6 +23,6 @@ void    free_arglist(char **al, int len)
         i++;
     }
     //The last is NULL;
-    free(al[i]);
+    // free(al[i]);
     free(al);
 }
