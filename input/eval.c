@@ -129,8 +129,6 @@ char     **eval(int ac, char **av, int *size, int *flag)
     num = ac - 1;
     num_op = pos_cal(num, &av[1], flag);
 
-    // printf("the number of the option %d\n", num_op);
-
     num -=num_op;
     if (isdupnum(&av[num_op + 1], num))
     {

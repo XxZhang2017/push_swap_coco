@@ -16,26 +16,32 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_list
+// typedef struct	s_list
+// {
+// 	void			*content;
+// 	size_t			content_size;
+// 	struct s_list	*next;
+// }				t_list;
+
+typedef	struct	s_list
 {
-	void			*content;
-	size_t			content_size;
+	char			*content;
 	struct s_list	*next;
 }				t_list;
 
-void			ft_lstadd(t_list **alst, t_list *new);
+// void			ft_lstadd(t_list **alst, t_list *new);
 
-void			ft_lstappend(t_list **alst, t_list *new);
+// void			ft_lstappend(t_list **alst, t_list *new);
 
-void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+// void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 
-void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+// void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+// void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+// t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-t_list			*ft_lstnew(const void *content, size_t content_size);
+// t_list			*ft_lstnew(const void *content, size_t content_size);
 
 int				ft_isalnum(int c);
 
@@ -129,7 +135,7 @@ void			ft_striter(char *s, void (*f)(char *));
 
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 
-char			*ft_strjoin(const char *s1, const char *s2);
+// char			*ft_strjoin(const char *s1, const char *s2);
 
 char			*ft_strmap(const char *s, char (*f)(char));
 
@@ -144,4 +150,20 @@ char			**ft_strsplit(const char *s, char c);
 char			*ft_strsub(const char *s, unsigned int start, size_t len);
 
 char			*ft_strtrim(const char *s);
+// get next line:
+int				ft_search(char *a);
+
+char			*ft_strnrenew(char *a, char *b, int len);
+
+char			*ft_strrenew(char *a, char *b);
+
+void			ft_add_to_tail(char *b, int tc, t_list **t);
+
+t_list			*ft_append(t_list *t, char *n);
+
+t_list			*ft_get_last(t_list *t);
+
+char			*ft_strnjoin(char *a, char *b, int n);
+
+char			*ft_strjoin(char *a, char *b);
 #endif
