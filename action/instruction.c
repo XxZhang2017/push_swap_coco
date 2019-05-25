@@ -51,7 +51,8 @@ void    exeAction(t_action *act, t_stack *st)
     void    (*instr[11])(t_stack *);
     t_action    *helper;
     int     i;
-
+    if (!act)
+        return ;
     i = act->head->len;
     instr[0] = &sa;
     instr[1] = &sb;
@@ -70,5 +71,6 @@ void    exeAction(t_action *act, t_stack *st)
         instr[helper->a_code](st);
         helper = helper->next;
     }
+    printf("in exe, before free\n");
     free_action(act->head);
 }

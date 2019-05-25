@@ -7,6 +7,7 @@
 # include <time.h>
 # include <string.h>
 # include "ps_libft/libft.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -89,7 +90,12 @@ void        exeAction(t_action *act, t_stack *st);
 
 //sort:
 int    sort_three(t_stack *st);
-
+int     isfinished(t_stack *st);
+int     isordered(t_stack *st);
+int     exeStrategy(t_stack *st);
+t_action    *to_topb(t_stack *st, int index);
+t_action    *moveToA(t_stack *st, int num);
+t_action    *comb_action(t_action *aa, t_action *ab);
 
 
 //free:
