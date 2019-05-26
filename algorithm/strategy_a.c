@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-static int  search_min_down(t_stack *st, int num)
+int  search_min_down_a(t_stack *st, int num)
 {
     int start;
 
@@ -26,7 +26,7 @@ static int  search_min_down(t_stack *st, int num)
     return (-1);
 }
 
-static int  search_top_to_max(t_stack *st, int num)
+int  search_top_to_max_a(t_stack *st, int num)
 {
     int start;
 
@@ -45,7 +45,7 @@ static int  search_top_to_max(t_stack *st, int num)
     return (-1);
 }
 
-static int  search_pos(t_stack *st, int num)
+int  search_pos_a(t_stack *st, int num)
 {
     int index;
 
@@ -54,8 +54,8 @@ static int  search_pos(t_stack *st, int num)
         return st->mini_a - 1;
     else
     {
-        if ((index = search_min_down(st, num)) == -1)
-            return (search_top_to_max(st, num));
+        if ((index = search_min_down_a(st, num)) == -1)
+            return (search_top_to_max_a(st, num));
         else
             return (index);
     }
@@ -67,7 +67,7 @@ t_action    *moveToA(t_stack *st, int num)
     int adj_pos;
     t_action    *act;
     
-    pos = search_pos(st, num);
+    pos = search_pos_a(st, num);
     if (pos == -1)
     {
         write(1, "searching error\n", 16);

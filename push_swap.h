@@ -44,13 +44,23 @@ typedef struct s_stack
 
 }      t_stack;
 
-typedef struct s_action
+typedef struct  s_action
 {
     int a_code;
     int len;
     struct s_action *head;
     struct s_action *next;
 }               t_action;
+
+typedef struct  s_optimizer
+{
+    int opm_code;
+    int upa;
+    int upb;
+    int downa;
+    int downb;
+}               t_optimizer;
+
 
 void    pa(t_stack *st);
 void    pb(t_stack *st);
@@ -96,6 +106,27 @@ t_action    *to_topb(t_stack *st, int index);
 t_action    *moveToA(t_stack *st, int num);
 t_action    *comb_action(t_action *aa, t_action *ab);
 int         sort_five(t_stack *st);
+
+//optimize:
+t_action    *getbestfromB(t_stack *st);
+t_optimizer *init_opm(int ua, int ub, int da, int db);
+int     s_upa(t_stack *st, int num);
+int     s_downa(t_stack *st, int num);
+int     s_upb(t_stack *st, int num);
+int     s_downb(t_stack *st, int num);
+t_action    *upa_upb(t_optimizer *opm);
+t_action    *downa_downb(t_optimizer *opm);
+t_action    *upa_downb(t_optimizer *opm);
+t_action    *downa_upb(t_optimizer *opm);
+t_action    *opAction(t_optimizer *opm);
+//searching:
+int  search_pos_a(t_stack *st, int num);
+int  search_min_down_a(t_stack *st, int num);
+int  search_top_to_max_a(t_stack *st, int num);
+int  search_min_down_b(t_stack *st, int num);
+int  search_top_to_max_b(t_stack *st, int num);
+int  search_pos_b(t_stack *st, int num);
+int     get_opmcode(int ua, int ub, int da, int db);
 
 //free:
 void    free_arglist(char **al, int len);
