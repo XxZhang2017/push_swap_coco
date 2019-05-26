@@ -1,1 +1,4 @@
-`ruby -e "puts (1..7).to_a.shuffle.join(' ')"``
+`ruby -e "puts (1..5).to_a.shuffle.join(' ')"``
+
+// I need arg;
+arg=`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`;./a.out $arg

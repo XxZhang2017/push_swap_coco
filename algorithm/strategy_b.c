@@ -17,9 +17,10 @@ t_action    *to_topb(t_stack *st, int index)
     t_action    *act;
     int steps;
 
-    if ((index - st->top_b) > (st->num_b / 2))
+    steps = index - st->top_b;
+    if (steps > (st->num_b / 2))
     {
-        steps = st->num_b - (index - st->top_b);
+        steps = st->size - index;
         act = getInstruction(9, steps); //"rrb"
     }
     else

@@ -14,32 +14,6 @@
 
 //apply to a:
 
-// static t_action *action_three(t_stack *st)
-// {
-//     t_action    *act;
-//     store_stack_info(st);
-//     if (st->mini_a == st->top_a && st->maxi_a == st->size - 1)
-//         return NULL;//correct order;
-//     else if (st->mini_a == st->size - 1 && st->maxi_a == st->top_a)
-//         return NULL; //reverse order;
-//     else if (st->mini_a == st->top_a && st->maxi_a == st->size - 2)
-//     {
-//         act = getInstruction(0, 1);
-//         return moreAction(act, 5, 1);//correct order;
-//     }
-//     else if (st->mini_a == st->size - 1 && st->maxi_a == st->size - 2)
-//         return getInstruction(8, 1);//correct order;
-
-//     else if (st->mini_a == st->size - 2 && st->maxi_a == st->top_a)
-//         return getInstruction(5, 1); //correct order;
-//     else if (st->mini_a == st->size - 2 && st->maxi_a == st->size - 1)
-//         return getInstruction(0, 1);//correct order;
-//     else
-//         return (NULL);
-// }
-
-//apply to a:
-
 static t_action *action_three(t_stack *st)
 {
     t_action    *act;
@@ -125,13 +99,52 @@ int    sort_three(t_stack *st)
 //     sort_remain(st);
 //     return (reg);
 // }
+
+static int sort_remain(t_stack *st)
+{
+    int loop_time;
+    t_action    *act;
+
+    loop_time = st->num_b;
+    while (loop_time)
+    {
+        act = moveToA(st, st->arr_b[st->top_b]);
+        act = moreAction(act, 3, 1);
+        exeAction(act, st);
+        loop_time--;
+    }
+    return (0);
+}
+
+static  int rotate_a(t_stack *st)
+{
+    int rotate_times;
+    t_action    *act;
+
+    store_stack_info(st);
+    rotate_times = st->mini_a - st->top_a;
+    if (rotate_times > st->num_a / 2)
+    {
+        rotate_times = st->size - 1 - st->mini_a + 1;
+        act = getInstruction(8, rotate_times);
+    }
+    else
+        act = getInstruction(5, rotate_times);
+    exeAction(act, st);
+    return (0);
+}
+//b is empty but not in order;
 int     sort_five(t_stack *st)
 {
     int reg;
     t_action    *act;
 
-    act = getInstruction(4, 2);
+    act = getInstruction(4, 498);
+    exeAction(act, st);
     reg = sort_three(st);
-    // sort_remain(st);
+    //b is not empty:
+    if (reg)
+        reg = sort_remain(st);
+    reg = rotate_a(st);
     return (reg);
 }
