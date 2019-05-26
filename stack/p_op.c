@@ -1,5 +1,6 @@
 #include "../push_swap.h"
 
+
 void    pa(t_stack *st)
 {
     //error, b is empty;

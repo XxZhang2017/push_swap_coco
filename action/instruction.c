@@ -12,11 +12,30 @@
 
 #include "../push_swap.h"
 
+static void print_push(t_stack *st, int acode)
+{
+    if (acode == 3)
+    {
+        store_stack_info(st);
+        ft_print_stack_a(st);
+        printf("\n\n");
+        ft_print_stack_b(st);
+        printf("---------\n");
+        printf("will push %d to A \n", st->arr_b[st->top_b]);
+
+    }
+       
+    // else if (acode == 4)
+    //     printf("push %d to B \n", st->arr_a[st->top_a]);
+}
+
 t_action    *getInstruction(int acode, int num)
 {
     int i;
     t_action    *act;
 
+    if (num == 0)
+        return (NULL);
     act = newAction(acode);
     num--;
     i = 0;
@@ -68,9 +87,11 @@ void    exeAction(t_action *act, t_stack *st)
     helper = act->head;
     while (helper)
     {
+        // print_push(st, helper->a_code);
         instr[helper->a_code](st);
+
         helper = helper->next;
     }
-    printf("in exe, before free\n");
+    // printf("in exe, before free\n");
     free_action(act->head);
 }

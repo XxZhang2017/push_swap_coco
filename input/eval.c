@@ -142,7 +142,6 @@ char     **eval(int ac, char **av, int *size, int *flag)
     return (reg);
 }
 
-
 t_stack *validate(int ac, char **av)
 {
     char    **arglist;
