@@ -16,19 +16,18 @@
 t_action    *upa_upb(t_optimizer *opm)
 {
     t_action    *act;
-    int diff;
+    int comm;
 
     if (!opm)
         return (NULL);
-    printf("action : %d\n", opm->opm_code);
+    // printf("action : %d\n", opm->opm_code);
     act = NULL;
-    diff = (opm->upa > opm->upb) ? 
-    (opm->upa - opm->upb) : (opm->upb - opm->upa);
-    act = getInstruction(7, diff);
+    comm = (opm->upa <= opm->upb) ? opm->upa : opm->upb;
+    act = getInstruction(7, comm);
     if (opm->upa > opm->upb)
-        act = moreAction(act, 5, opm->upa - diff);
+        act = moreAction(act, 5, opm->upa - comm);
     else
-        act = moreAction(act, 6, opm->upb - diff);
+        act = moreAction(act, 6, opm->upb - comm);
     act = moreAction(act, 3, 1);
     return (act);
 }
@@ -40,7 +39,7 @@ t_action    *upa_downb(t_optimizer *opm)
 
     if (!opm)
         return (NULL);
-    printf("action : %d\n", opm->opm_code);
+    // printf("action : %d\n", opm->opm_code);
     act = NULL;
     //ra, rrb
     act = getInstruction(5, opm->upa);
@@ -53,19 +52,18 @@ t_action    *upa_downb(t_optimizer *opm)
 t_action    *downa_downb(t_optimizer *opm)
 {
     t_action    *act;
-    int diff;
+    int comm;
 
     if (!opm)
         return (NULL);
-    printf("action : %d\n", opm->opm_code);
+    // printf("action : %d\n", opm->opm_code);
     act = NULL;
-    diff = (opm->downa > opm->downb) ? 
-    (opm->downa - opm->downb) : (opm->downb - opm->downa);
-    act = getInstruction(10, diff);
+    comm = (opm->downa < opm->downb) ? opm->downa : opm->downb;
+    act = getInstruction(10, comm);
     if (opm->downa > opm->downb)
-        act = moreAction(act, 8, opm->downa - diff);
+        act = moreAction(act, 8, opm->downa - comm);
     else
-        act = moreAction(act, 9, opm->downb - diff);
+        act = moreAction(act, 9, opm->downb - comm);
     act = moreAction(act, 3, 1);
     return (act);
 }
@@ -77,7 +75,7 @@ t_action    *downa_upb(t_optimizer *opm)
 
     if (!opm)
         return (NULL);
-    printf("action : %d\n", opm->opm_code);
+    // printf("action : %d\n", opm->opm_code);
     act = NULL;
     //rb, rra
     act = getInstruction(8, opm->downa);
@@ -89,21 +87,23 @@ t_action    *downa_upb(t_optimizer *opm)
 int     get_opmcode(int ua, int ub, int da, int db)
 {
     int s[4];
-    int reg;
+    int reg, smallest;
     int i;
  
     s[0] = ua > ub ? ua : ub;
     s[1] = ua + db;
     s[2] = da > db ? da : db;
     s[3] = ub + da;
+    smallest = s[0];
     reg = 0;
     i = 0;
     while (i < 4)
     {
-        if (reg < s[i])
+        if (s[i] < smallest)
         {
             // printf("the scores change from %d to %d\n", reg, i);
             reg = i;
+            smallest = s[i];
         }
         i++;
     }

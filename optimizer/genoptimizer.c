@@ -46,7 +46,10 @@ void    cal_opm_attr(t_optimizer *opm, int ua, int ub, int da, int db)
     opm->upa = ua;
     opm->upb = ub;
     opm->downa = da;
-    opm->downb = da;
+    opm->downb = db;
     opm->opm_code = get_opmcode(ua, ub, da, db);
     opm->steps = get_steps(opm);
+    // printf("\n");
+    // printf("ua : %d, ub : %d, da : %d, db : %d\n", ua, ub, da, db);
+    // printf("\n");
 }

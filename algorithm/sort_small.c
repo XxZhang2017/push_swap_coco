@@ -89,17 +89,6 @@ int    sort_three(t_stack *st)
     return (reg);
 }
 
-// int     sort_four(t_stack *st)
-// {
-//     int reg;
-//     t_action    *act;
-
-//     act = getInstruction(4, 2);
-//     reg = sort_three(st);
-//     sort_remain(st);
-//     return (reg);
-// }
-
 static int sort_remain(t_stack *st)
 {
     int loop_time;
@@ -110,7 +99,14 @@ static int sort_remain(t_stack *st)
     
     while (loop_time)
     {
+        // printf("\n-------\n");
+        // printf("stack a info --------------\n");
+        // ft_print_stack_a(st);
+        // printf("stack b info --------------\n");
+        // ft_print_stack_b(st);
+        // printf("\n");
         opm = getOptimizer(st);
+        
         act = opAction(opm);    //opm has been free;
         exeAction(act, st);
         loop_time--;
@@ -144,6 +140,12 @@ int     sort_five(t_stack *st, int pb)
     act = getInstruction(4, pb);
     exeAction(act, st);
     reg = sort_three(st);
+    // printf("stack a info --------------\n");
+    //     ft_print_stack_a(st);
+    //     printf("stack b info --------------\n");
+    //     ft_print_stack_b(st);
+    //     printf("\n");
+
     //b is not empty:
     if (reg)
         reg = sort_remain(st);

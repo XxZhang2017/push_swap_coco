@@ -35,8 +35,6 @@ int  search_top_to_max_b(t_stack *st, int num)
     {
         if (st->arr_b[start] > num)
         {
-            // if (num == 7 || num == 10 || num == 18)
-            //     printf("pos is %d\n", start - 1);
             return (start - 1);
         }
         start++;
@@ -44,19 +42,23 @@ int  search_top_to_max_b(t_stack *st, int num)
     return (-1);
 }
 
-int  search_pos_b(t_stack *st, int num)
+int     search_pos_b(t_stack *st, int num)
 {
     int index;
 
     store_stack_info(st);
-    if (num >= st->maxv_b || num <= st->minv_b)
-        return st->mini_b - 1;
+    if (num == st->arr_b[st->top_b])
+        return (st->top_b);
     else
     {
-        if ((index = search_min_down_b(st, num)) == -1)
-            return (search_top_to_max_b(st, num));
-        else
-            return (index);
+        index = st->top_b;
+        while (index < st->size)
+        {
+            if (num == st->arr_b[index])
+                return (index);
+            index++;
+        }
+        return (-1);
     }
 }
 

@@ -23,6 +23,10 @@ t_action    *opAction(t_optimizer *opm)
     optr[2] = &downa_downb;
     optr[3] = &downa_upb;
     act = optr[opm->opm_code](opm);
+    // printf("ACTION+++++\n");
+    // printf("action on operand: %d at index: %d\n", opm->operand, opm->operand_index);
+    // printf("action code is: %d\n", opm->opm_code);
+    // printf("\n");
     if (opm)
         free(opm);
     return (act);

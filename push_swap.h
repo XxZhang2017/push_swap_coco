@@ -7,7 +7,7 @@
 # include <time.h>
 # include <string.h>
 # include "ps_libft/libft.h"
-
+# define BUFF_SIZE 4096
 typedef struct s_stack
 {
     //stack a:
@@ -110,7 +110,7 @@ t_action    *to_topb(t_stack *st, int index);
 t_action    *moveToA(t_stack *st, int num);
 t_action    *comb_action(t_action *aa, t_action *ab);
 int         sort_five(t_stack *st, int pb);
-
+int         sort_two(t_stack *st);
 //optimize:
 t_action    *getbestfromB(t_stack *st);
 

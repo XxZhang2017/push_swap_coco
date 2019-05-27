@@ -35,8 +35,6 @@ int  search_top_to_max_a(t_stack *st, int num)
     {
         if (st->arr_a[start] > num)
         {
-            // if (num == 7 || num == 10 || num == 18)
-            //     printf("pos is %d\n", start - 1);
             return (start - 1);
         }
             
@@ -73,9 +71,12 @@ t_action    *moveToA(t_stack *st, int num)
         write(1, "searching error\n", 16);
         exit(1);
     }
-    adj_pos = pos - st->top_a + ((pos < st->top_a)? 0 : 1);
-    if (adj_pos < 0)
-            adj_pos = 0;
+    if (pos == st->top_a)
+        adj_pos = 0;
+    else
+        adj_pos = pos - st->top_a + ((pos < st->top_a)? 0 : 1);
+    // if (adj_pos < 0)
+    //         adj_pos = 0;
     if (adj_pos > (st->num_a / 2))
     {
         adj_pos = st->size - 1 - pos;
