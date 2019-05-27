@@ -104,12 +104,14 @@ static int sort_remain(t_stack *st)
 {
     int loop_time;
     t_action    *act;
+    t_optimizer *opm;
 
     loop_time = st->num_b;
+    
     while (loop_time)
     {
-        act = moveToA(st, st->arr_b[st->top_b]);
-        act = moreAction(act, 3, 1);
+        opm = getOptimizer(st);
+        act = opAction(opm);    //opm has been free;
         exeAction(act, st);
         loop_time--;
     }
@@ -134,12 +136,12 @@ static  int rotate_a(t_stack *st)
     return (0);
 }
 //b is empty but not in order;
-int     sort_five(t_stack *st)
+int     sort_five(t_stack *st, int pb)
 {
     int reg;
     t_action    *act;
 
-    act = getInstruction(4, 498);
+    act = getInstruction(4, pb);
     exeAction(act, st);
     reg = sort_three(st);
     //b is not empty:

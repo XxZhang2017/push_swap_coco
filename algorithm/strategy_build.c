@@ -49,3 +49,49 @@ int     exeStrategy(t_stack *st)
         return exeStrategy(st);
     }
 }
+
+static t_optimizer  *copy_opm(t_optimizer *candi)
+{
+    t_optimizer *opm;
+
+    opm = init_opm(candi->operand, candi->operand_index);
+    cal_opm_attr(opm, candi->upa, candi->upb, candi->downa, candi->downb);
+    return opm;
+}
+
+t_optimizer *getOptimizer(t_stack *st)
+{
+    int loop_index;
+    t_optimizer *opm;
+    t_optimizer *helper;
+    t_optimizer *candi;
+
+    loop_index = st->top_b;
+    opm = NULL;
+    while (loop_index <= st->size - 1)
+    {
+        candi = init_opm(st->arr_b[loop_index], loop_index);
+        //finish getting steps;
+        cal_opm_attr(helper, s_upa(st, st->arr_b[loop_index]), s_upb(st, st->arr_b[loop_index]), s_downa(st, st->arr_b[loop_index]), s_downb(st, st->arr_b[loop_index]));
+        if (!opm)
+            opm = candi;
+        else
+        {
+            if (opm->steps < candi->steps)
+            {
+                helper = opm;
+                opm = copy_opm(candi);
+                free(helper);
+            }
+            // if (opm->steps < candi->steps)
+            // {
+            //     helper = opm;
+            //     opm = candi;
+            //     free(helper);
+            // }
+        }
+        free(candi);
+        loop_index++;
+    }
+    return (opm);
+}

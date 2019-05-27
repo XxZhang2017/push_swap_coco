@@ -23,6 +23,8 @@ t_action    *opAction(t_optimizer *opm)
     optr[2] = &downa_downb;
     optr[3] = &downa_upb;
     act = optr[opm->opm_code](opm);
+    if (opm)
+        free(opm);
     return (act);
 }
 

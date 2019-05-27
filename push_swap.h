@@ -59,6 +59,10 @@ typedef struct  s_optimizer
     int upb;
     int downa;
     int downb;
+    int steps;
+
+    int operand;
+    int operand_index; 
 }               t_optimizer;
 
 
@@ -105,11 +109,17 @@ int     exeStrategy(t_stack *st);
 t_action    *to_topb(t_stack *st, int index);
 t_action    *moveToA(t_stack *st, int num);
 t_action    *comb_action(t_action *aa, t_action *ab);
-int         sort_five(t_stack *st);
+int         sort_five(t_stack *st, int pb);
 
 //optimize:
 t_action    *getbestfromB(t_stack *st);
-t_optimizer *init_opm(int ua, int ub, int da, int db);
+
+t_optimizer *init_opm(int operand, int index);
+void    cal_opm_attr(t_optimizer *opm, int ua, int ub, int da, int db);
+int     get_opmcode(int ua, int ub, int da, int db);
+int     get_steps(t_optimizer *opm);
+t_optimizer *getOptimizer(t_stack *st);
+
 int     s_upa(t_stack *st, int num);
 int     s_downa(t_stack *st, int num);
 int     s_upb(t_stack *st, int num);
@@ -126,7 +136,6 @@ int  search_top_to_max_a(t_stack *st, int num);
 int  search_min_down_b(t_stack *st, int num);
 int  search_top_to_max_b(t_stack *st, int num);
 int  search_pos_b(t_stack *st, int num);
-int     get_opmcode(int ua, int ub, int da, int db);
 
 //free:
 void    free_arglist(char **al, int len);
