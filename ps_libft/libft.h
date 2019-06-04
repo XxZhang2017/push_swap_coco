@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 20:51:44 by xinzhang          #+#    #+#             */
-/*   Updated: 2019/02/06 20:52:02 by xinzhang         ###   ########.fr       */
+/*   Updated: 2019/05/27 08:57:47 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// typedef struct	s_list
-// {
-// 	void			*content;
-// 	size_t			content_size;
-// 	struct s_list	*next;
-// }				t_list;
-
 typedef	struct	s_list
 {
 	char			*content;
 	struct s_list	*next;
 }				t_list;
-
-// void			ft_lstadd(t_list **alst, t_list *new);
-
-// void			ft_lstappend(t_list **alst, t_list *new);
-
-// void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-
-// void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-
-// void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-
-// t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-
-// t_list			*ft_lstnew(const void *content, size_t content_size);
 
 int				ft_isalnum(int c);
 
@@ -135,8 +114,6 @@ void			ft_striter(char *s, void (*f)(char *));
 
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 
-// char			*ft_strjoin(const char *s1, const char *s2);
-
 char			*ft_strmap(const char *s, char (*f)(char));
 
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
@@ -150,7 +127,9 @@ char			**ft_strsplit(const char *s, char c);
 char			*ft_strsub(const char *s, unsigned int start, size_t len);
 
 char			*ft_strtrim(const char *s);
-// get next line:
+/*
+** get next line:
+*/
 int				ft_search(char *a);
 
 char			*ft_strnrenew(char *a, char *b, int len);
